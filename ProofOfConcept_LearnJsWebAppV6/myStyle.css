@@ -1,0 +1,245 @@
+
+html,body {
+    height:100% ;
+}
+
+body { font-family:Arial; }
+
+#codingWindows {
+	float:left; 
+	width:88%; 
+	height:100%;
+}
+
+#renderedHtml {
+	width:100%;
+	max-height:50%;
+	overflow: auto;
+}
+
+#canvasWindow {
+	padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+	width: 320px;
+	height: 240px;
+	border: 1px solid #000000;
+	background: #cdcdcd;
+}
+
+#outputWindow { display: flex; }
+#renderedHtml { align-items: stretch; } 
+
+
+/* ------------------------- Start of the Left Side bar CSS */
+
+#leftSideBar {
+	float:left;
+	width:8%;
+	height:100%;
+	/* background-color:pink; */
+}
+
+.leftnav div {
+    /* float: left;
+    display: block; */
+    /* color: #f2f2f2; */
+    /* text-align: center; */
+    padding: 0px 0px;
+    text-decoration: none;
+    font-size: 17px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	/* margin-right:5px;
+	margin-left:10px; */
+}
+
+#menu-bar {
+	width:1em;
+	float:left;
+}
+
+.dropbtn {
+    /* background-color: #4CAF50;
+    color: white; */
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+	min-width:100%;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+	/* min-width:100%; */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+	background-color: #f1f1f1;
+}
+
+/* -------------------------- End of the Left side bar CSS ----------------- */
+
+
+h5, #textarea, #inputWindow, #outputWindow {
+	font-family:Arial;
+}
+
+h5 { 
+    border: 2px solid green;
+	border-radius: 20px;
+    padding: 0px;
+    margin: 0px;
+}
+
+pre {
+	color: blue;
+}
+
+// The following is required to make the textbox fit inside the DIV element squarely on 
+// all browsers.
+textarea{
+    height: 100%;
+    width: 100%;
+   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+body {
+	background-color:whitesmoke;
+}
+
+.ace_gutter-cell {
+	background-color:whitesmoke;
+}
+
+.ace_gutter-layer {
+	background-color:whitesmoke;
+}
+
+#jsEditor, #htmlEditor, #instructionWindow, #outputWindow, #inputWindow, #errorWindow { 
+	// background-color:#f1f1f1!important;
+	background-color:transparent;
+	border: 5px solid lightgray;
+	border-radius: 20px;
+}
+
+#instructionWindow {
+	// padding: top right bottom left;
+	padding: 0em 2em 0em 2em;
+}
+
+#instructionWindow img {
+	// padding: top right bottom left ;
+	// padding: 0em 2em 0em 2em ;
+	width: 50% ;
+	height: 50% ;
+	display: block;
+	margin: auto;
+	
+}
+
+.hmcq, .radio-inline {
+	width:22%;
+	float:left;
+	// background-color: lightgray;
+	margin:1%;
+	// background-color:green;
+	// border: 5px solid lightgray;
+}
+
+/* top Navbar from W3Schools
+
+/* Add a black background color to the top navigation */
+.topnav {
+    /* background-color: #333; */
+    overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav div {
+    float: left;
+    display: block;
+    /* color: #f2f2f2; */
+    text-align: center;
+    padding: 5px 15px;
+    text-decoration: none;
+    font-size: 17px;
+	margin-right:5px;
+	margin-left:10px;
+}
+
+/* The class below is probably not being used */
+.topnav a {
+	width: 50px;
+	left-margin:20px;
+}
+
+/* Change the color of links on hover */
+.navcol div:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.navcol div.active {
+    background-color: #ddd; /* #4CAF50; */
+    color: black;
+}
+
+/* the folllowing are for the automatically generated table of contents */ 
+
+.contentsLeft {
+	width:30%;
+	float:left;
+}
+
+.contentsRight {
+	width:70%;
+	float:left;
+	color:blue;
+}
+
+div.contentsRight:hover {
+    cursor: pointer;
+}
+
+div.atBottom {
+    position: absolute;
+    bottom: 3em;
+}
+
+/* ------------- this div is used for automatically inserting variables into the instructions window --*/
+div.jsVariable {
+	display: inline-block ; /* A div element with inline-block is only supposed to be as wide as its text */
+}
+
+
+

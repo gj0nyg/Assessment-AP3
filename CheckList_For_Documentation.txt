@@ -1,0 +1,38 @@
+Documentation Check List two major topics are examined in this assessment
+Your evaluation and communication can cover some or all of these topics/areas
+You can use the topics below as a checklist for your documentation.
+
+[HCI]  - Major Topic
+HCI.1	(Needs Analysis)
+		Summarizes the nature and purpose of the system 
+			Type of system (website, video game, spreadsheet) 
+			People it will serve 
+			Benefits it will provide
+HCI.2	(User and task analysis)
+		User analysis - characterizes the people who will use the site: 
+			General considerations (age, education, experience with computers) 
+		Task analysis - what users will do 
+			User’s goals - what they want to accomplish Tasks  or
+			activities  carried out to achieve the goals
+HCI.3	(Functional analysis)
+		Functionality  or computer services that users will need and what will be automated
+			Close correspondence between functions and tasks 
+		Examples: 
+			Travel site task: “find all flights to xyz, ordered by price” 
+				Needs search function and sorting capability 
+			Music CD site:  task “buy a CD” 
+				Needs secure on-line transaction functionality
+
+[SDC] - Major Topic
+	(The Sotfware Development Cycle) - 6 Steps
+		1 - Problem Identification    <- Part A (use this as a heading and refer to SDC, ie as part of the SDC ...)
+			HCI 1,2 ?
+		2 - Solution Specification    <- Part A (use this as a heading and refer to SCD,)
+			HCI 3 ?
+		3 - Design Implementation
+		4 - Testing
+		5 - Evaluation
+		6 - Documentation
+
+			
+		

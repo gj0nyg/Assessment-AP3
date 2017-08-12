@@ -1,0 +1,14 @@
+Chapter 1: Introduction to HCI
+Chapter 2: Capabilities of Human Beings
+Chapter 3: Know Thy User
+Chapter 4: Content Organization
+Chapter 5: Visual Organization
+Chapter 6: Navigation
+Chapter 8: Evaluation
+Chapter 9: Color
+Chapter 10: Typography
+Chapter 11: Multimedia
+Chapter 12: Accessibility
+Chapter 13: Globalization
+Chapter 14: Personalization and Trust
+

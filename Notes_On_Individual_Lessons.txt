@@ -1,0 +1,97 @@
+Declaring variables and data structures in Javascript
+	This lesson should have examples of declaring basic data types to object such as
+
+		Booleans True/Fales			var isMale = true ;
+		Numbers as integers			var myInteger = 7;
+		Numbers as decimal numbers 		var myNumber = 6.95 ;
+		Strings  				var mySting = "Hello World";
+		Arrays   				var anArray = ["Once","Upon","a","time"];
+		Objects  				var someVar = {a:"Jim", b:45, c:[1,2,3] };
+	Your lessons sould move include discussions about why variable declaration is important.
+	IE using the keyword var.
+	Note: you dont need to declare variables with the keyword var.
+	Your testing code should check for the keyword var in the source code.
+	Your testing code should check for the existance of the data types
+	along with the values of the datatypes.
+	Your testing might also include testing of output if your program outputs to 
+	the output window, this may be helpful to demonstrate hwo to show values. 
+	You could/should include mcq questions in your lesson to test general knowledge. 
+
+Performing Input and Output operations using Javascript. 
+	This lesson is all about the various types of input and output that a progarm can use.
+	Examples of input and output are given below.
+	output types 
+		alert("my name is" + nameString );
+		// elaborate on the how the function printLn works.
+		// it is easy to understand
+		printLn("a simple text message");
+		primtLn("<H1> Some simple HTML </H1>");
+		console.log("another message");
+		screen changes, via javascript. 
+	input types
+		var nameString = prompt("Enter your name:");
+		readLn(); // get a line of input from the input screen.
+		// and explain how it works.
+		HTML button events and calling javascript functions. 
+
+		You should test output from the user 
+		as well as testing the source code of the user directly.
+	
+
+Doing Calculations in Javascript using Boolean, String and Number
+	There are numerous calculatoins that can be done in javascript.
+	Your exercises should build up to more complex calculations.
+	you should demonstrate 
+		string, boolean, number and array calculations.
+	you can or shuold check the basic syntax of the students code
+		for example by checking for the existance of variables 
+		and functions
+	but perhaps most imporantlty by checking the return value or output
+	values of the program.
+	By checking the final calculation value you are checking that the student
+	has sucessfully written the program.
+
+Understanding Conditional operations using Boolean Calculations
+	Conditional operators are fundamentally imporamt to
+	determining the flow control of computer programs
+	demonstration of various boolean operations/calculations 
+	should be performed and checked by your program.
+	If your exercises ar chained you may be able to 
+	walk the user through the process of building a complex examples.
+	
+Understanding program control, Sequencing Selection and Iteration
+	You exercises can domestrate the use of codeing by example
+	You should consider individual examples of each type of 
+	program control.
+		Sequencing - a sequence of program steps.
+		Selection statments -
+			 if ( boolean ) {//true ;  dostuff(); } else {//false; otherstuff();} ;  
+
+Understanding modular programming by creating and using functions
+	This lesson should demonstrate how to define and use functions.
+	both named and anonymous functions.
+	possibly using anonymous functions with map ?
+	as well as possibly using functions inside objects ?
+
+Understanding modular programming by creating and using Objects
+	Objects are widely used in computer sience as a way of 
+	organising code neatly and realibly.
+	YOu should creat examples of how objects are defined and used.
+	A couple of examples might be
+		a bank account
+		a 2D point.
+	
+Creating graphics using the Canvas object
+	Testing that the user has created and is using a canvas object might be
+	dificult to do.
+	You can test both the source code of the user for simple mistakes 
+	as well as the existance of a canvas object once it is created.
+	You can create canvases with oversized pixels to demonstrate how canvases work. 
+
+Creating sound using the Audio object
+	You should test the users input code.
+	You can also test that the audio or video object has been created.
+	To test the the user has sucessfully created or used a video or audio object
+	you can put a message inside the audio or video object so that 
+	the student can only know the answer if they sucessfully play the audio/video object.
+

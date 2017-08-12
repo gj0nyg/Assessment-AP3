@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+
+</head>
+<body style="height:100%;" onload="onLoad();">
+
+<DIV id="leftSideBar">
+	<div class="dropdown">
+		<button onclick="myFunction()" class="dropbtn"><img id="menu-bar" src="images/menu-bar.png";></button>
+		<div id="myDropdown" class="dropdown-content">
+			<a href="#" onclick="dropDown('SaveLesson');">Save Lesson</a>
+			<a href="#" onclick="dropDown('LoadLesson');">Load Lesson</a>
+			<a href="#" onclick="dropDown('SaveExercise');">Save Exercise</a>
+			<a href="#" onclick="dropDown('LoadExercise');">Load Exercise</a>
+		</div>
+	</div>
+	<DIV><H3>Lessons</H3></DIV>
+	<DIV id="leftSideNavBar" class="leftnav navcol"></DIV>
+</DIV>
+<DIV id="codingWindows">
+	<div class="topnav navcol" id="myTopnav"></div>
+	<DIV style="width:49%; float:left;">
+		<H5 id="leftpayne" align="center">Left Payne</H5>
+		<div class="topnav navcol" id="leftNav">
+			<div id="instructionWindowTab" onclick="showLeftWindow('instructionWindow');">Instructions</div>
+			<!-- div id="HtmlWindowTab" onclick="showLeftWindow('HtmlWindow');">Html</div -->
+			<div id="htmlEditorTab" onclick="showLeftWindow('htmlEditor');">Html</div>
+			<div id="CSSWindowTab" onclick="showLeftWindow('CSSWindow');">CSS</div>
+			<div id="jsEditorTab" onclick="showLeftWindow('jsEditor');">Javascript</div>
+		</div>
+		<DIV id="instructionWindow" style="height:80vh;"></DIV>
+		<!-- DIV id="HtmlWindow" style="height:80vh;"></DIV -->
+		<DIV id="htmlEditor" style="height:80vh; background-color:transparent;"></DIV>
+		<DIV id="CSSWindow" style="height:80vh;"></DIV>
+		<DIV id="jsEditor" style="height:80vh; background-color:transparent;"></DIV>
+		<DIV>
+			<BUTTON id="runButton" style="float:left;" onClick="newRunCode();">Run</BUTTON>
+			<BUTTON id="showButton" style="float:left;" onClick="showHTML();">Show HTML</BUTTON>
+			<DIV style="float:left; color:red;" ID="errorMessage"></DIV>
+		</DIV>
+	</DIV>
+	<DIV style="width:49%; float:right;">
+		<H5 id="rightpayne" align="center">Right Payne</H5>
+		<div class="topnav navcol" id="rightNav">
+			<div id="outputWindowTab" onclick="showRightWindow('outputWindow');">Output</div>
+			<div id="inputWindowTab" onclick="showRightWindow('inputWindow');">Input</div>
+			<div id="errorWindowTab" onclick="showRightWindow('errorWindow');">Error</div>
+		</div>
+			<DIV id="outputWindow" style="height:80vh; width:100%;">
+				<DIV id="renderedHtml"></DIV>
+				<DIV id="outputWindowText"></DIV>
+			</DIV>
+		<textarea id="inputWindow" style="height:80vh; width:100%; background-color:transparent;"></textarea>
+		<DIV id="errorWindow" style="height:80vh; width:100%;"></DIV>
+		<DIV align=center><BUTTON onClick="clearOutput();">Clear</BUTTON></DIV>
+	</DIV>
+</DIV>
+
+<!-- script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.8/ace.js" type="text/javascript" charset="utf-8"></script -->
+<script src="ace.js" type="text/javascript" charset="utf-8"></script>
+<!-- script src="https://cdn.jsdelivr.net/ace/1.2.6/min/ace.js" type="text/javascript" charset="utf-8"></script -->
+<script src="learnJsLib.js" type="text/javascript" charset="utf-8"></script>
+<script src="yourLesson.js" type="text/javascript" charset="utf-8"></script>
+<script src="canvasLesson.js" type="text/javascript" charset="utf-8"></script>
+<script src="example1Lesson.js" type="text/javascript" charset="utf-8"></script>
+<script src="codeAPILesson.js" type="text/javascript" charset="utf-8"></script>
+<script src="exercisesJs.js" type="text/javascript" charset="utf-8"></script>
+<script>
+function dropDown(){
+	alert("Not Yet Implemented, use notepad++ to edit the file 'yourLesson.js'");
+}
+// var numberOfExercises = exercises.length ;
+var topNavBar=document.getElementById("myTopnav") ;
+var leftSideNavBar=document.getElementById("leftSideNavBar") ;
+var leftNavBar=document.getElementById("leftNav") ;
+var rightNavBar=document.getElementById("rightNav") ;
+var currentExercise ; // The current exercise object 
+var exerciseNumber ; // The current exercise number
+var currentLesson ; // The current lesson object
+
+// Clicking on the 'Show HTML' button will render the HTML to the output window. 
+function showHTML() {
+	var editorHTML = htmlEditor.getValue() ; // Get the User Edited Html
+	document.getElementById("renderedHtml").innerHTML=editorHTML ; // Rendered Html
+}
+
+function showLeftWindow(windowName){
+	document.getElementById('instructionWindow').style.display='none';   // 'none' Hides the window/s
+//	document.getElementById('HtmlWindow').style.display='none'; 
+	document.getElementById('htmlEditor').style.display='none'; 
+	document.getElementById('CSSWindow').style.display='none';
+	document.getElementById('jsEditor').style.display='none';
+		// Hide the 'Run' button and the 'Show HTML' button
+	// document.getElementById('runButton').style.display='none';
+	document.getElementById('showButton').style.display='none';
+
+	document.getElementById(windowName).style.display='block' ;          // Shows the window/s
+	if ( windowName == 'jsEditor') { jsEditor.resize(); } // Fix for showing the ace editor after a hide
+	if ( windowName == 'htmlEditor') { 
+		htmlEditor.resize(); // Fix for showing the ace editor after a hide
+		document.getElementById('showButton').style.display='block' ; // Show the HTML Button
+	}
+	setActiveNavTabById(leftNavBar,windowName + "Tab");                // Set the active Tab
+	document.getElementById('leftpayne').innerHTML = windowName ;      // Put a title on the left window
+}
+
+function showRightWindow(windowName){
+	document.getElementById('inputWindow').style.display='none';  // Hides the window 
+	document.getElementById('outputWindow').style.display='none';
+	document.getElementById('errorWindow').style.display='none';
+
+	document.getElementById(windowName).style.display='block' ;   // Shows the window
+	setActiveNavTabById(rightNavBar,windowName + "Tab");           // Sets the active Tab right window
+	document.getElementById('rightpayne').innerHTML = windowName ;  // Sets the title on the right window
+}
+
+function setCurrentExercise(exerciseNum) {
+	currentExercise = exercises[exerciseNum - 1] ;
+
+	document.getElementById("inputWindow").innerHTML=currentExercise.input ;
+	document.getElementById("instructionWindow").innerHTML=currentExercise.instructions ;
+	if ( typeof currentExercise.html != 'undefined' ) {
+		htmlEditor.getSession().setValue(currentExercise.html) ; // User Editable Html
+		document.getElementById("renderedHtml").innerHTML=currentExercise.html ; // Rendered Html
+	}
+		document.getElementById("instructionWindow").innerHTML=currentExercise.instructions ;
+	// By checking for undefined the programming window will
+	// not be updated so that the previous exercises code can still be used
+	// for example run on exercises
+	if ( typeof(currentExercise.source) != "undefined" ) {
+		jsEditor.getSession().setValue(currentExercise.source) ;
+	}
+
+	// By checking for undefined the autoRun option will only be run 
+	// if it exists.
+	if ( typeof(currentExercise.autoRun) !== 'undefined' ) {
+		currentExercise.autoRun();
+	}
+
+	setActiveNavTabById(topNavBar,"ex" + exerciseNum);
+	exerciseNumber = exerciseNum ;
+}
+
+// This function works on both top and left side nav bars
+function setActiveNavTabById(navbar,idName){
+	var navBarDivs = navbar.getElementsByTagName('div') ;
+	var numNavs = navBarDivs.length ;
+	var i ;
+	for( i = 0 ; i < numNavs ; i++ ) {
+		if ( navBarDivs[i].id == idName ) {
+				// Setting the Nav Tab Style to "class:active" means it will
+				// show as defined in the myStyle.css style sheet, see the .active class
+				navBarDivs[i].classList.add('active');
+		} else {
+				// alert("Inside INactive" + idName + ":" + navBarDivs[i]);
+				navBarDivs[i].classList.remove('active'); ;
+		}
+	}
+}
+
+function setExerciseStatus(exerciseNum,success){
+	var index = exerciseNum - 1;
+	var markBox=topNavBar.getElementsByTagName('a')[index];
+	if ( success ) { 
+		markBox.innerHTML = '&#10003;' ;  // This is unicode for a green tick
+		markBox.style.color = 'green' ;
+	} else {
+		markBox.innerHTML = '&times;' ; // This is a check mark
+		markBox.style.color = 'red' ;
+	}
+}
+
+function setFontColor(exerciseNum,color) {
+	var index = exerciseNum - 1;
+	topNavBar.getElementsByTagName('div')[index].style.color = color ;
+}
+
+function buttonClick(index){
+	setCurrentExercise(index+1);
+}
+
+function createCallback(i){
+	return function() {
+		buttonClick(i);
+	}
+}
+
+function setCurrentLesson(lessonNumber){
+	var lessonIndex = lessonNumber - 1;
+	// alert(lessonNumber);
+	currentLesson = lessons[lessonIndex];
+	exercises = lessons[lessonIndex].exercises ;
+	// alert(lessonNumber);
+	setActiveNavTabById(leftSideNavBar,"Lesson" + lessonNumber);
+	buildTopNavBar();
+	setCurrentExercise(1); // Just go to the first exercise, if they change lesson
+
+}
+
+function sideBarButtonClick(index){
+	setCurrentLesson(index+1);
+}
+
+function createSideBarCallback(i){
+	return function() {
+		sideBarButtonClick(i);
+	}
+}
+
+// Build up the top nav bar using a for loop
+// each Ex button is called with 
+// onclick=buttonClick(exerciseNumber - 1);
+// note javascript arrays start at 0 not 1
+function buildTopNavBar(){
+	topNavBar.innerHTML = '';       // Clear out the nav bar innerHtml in case of rebuild on the fly
+	numberOfExercises = exercises.length ;
+	for ( var i = 0 ; i < numberOfExercises ; i++ ) {
+		var divnode = document.createElement("div");            // Create a <div> node
+		divnode.setAttribute("id", ("ex" + (i+1) ));            // example, sets the id="ex3" 
+		var anode = document.createElement("a");                // Create a <a> node for tick or cross
+		topNavBar.appendChild(divnode);
+		
+		var tabName = exercises[i].tabName;
+		var textnode = document.createTextNode(tabName);   // Create a text node
+	//	var textnode = document.createTextNode("Ex" + (i+1));   // Create a text node
+		divnode.onclick = createCallback(i) ; 					// anode.onclick = "buttonClick(i);"
+		divnode.appendChild(textnode);                          // Append the text to <div>
+		divnode.appendChild(anode);                             // Append the a node to <div>
+		anode.innerHTML = ''; 
+	}
+}
+
+// Build up the top nav bar using a for loop
+// each Ex button is called with 
+// onclick=buttonClick(exerciseNumber - 1);
+// note javascript arrays start at 0 not 1
+function buildLeftSideNavBar(){
+	leftSideNavBar.innerHTML = '';       // Clear out the nav bar innerHtml in case of rebuild on the fly
+	var numberOfLessons = lessons.length ;
+	for ( var i = 0 ; i < numberOfLessons ; i++ ) {
+		var divnode = document.createElement("div");            // Create a <div> node
+		divnode.setAttribute("id", ("Lesson" + (i+1) ));            // example, sets the id="ex3" 
+		var anode = document.createElement("a");                // Create a <a> node for tick or cross
+		leftSideNavBar.appendChild(divnode);
+		
+		var tabName = lessons[i].tabName;
+		var textnode = document.createTextNode(tabName);   // Create a text node
+	//	var textnode = document.createTextNode("Ex" + (i+1));   // Create a text node
+		divnode.onclick = createSideBarCallback(i) ; 					// anode.onclick = "buttonClick(i);"
+		divnode.appendChild(textnode);                          // Append the text to <div>
+		divnode.appendChild(anode);                             // Append the a node to <div>
+		anode.innerHTML = ''; 
+	}
+}
+
+// Set the starting exercise
+// And also set the Left window tab to the instruction window 
+// and the right window to the output window
+function onLoad() {
+	buildLeftSideNavBar();
+	setCurrentLesson(1);
+	// buildTopNavBar();
+
+	showLeftWindow("instructionWindow");
+	showRightWindow("outputWindow");
+}
+
+</script>
+</body>
+</html> 
